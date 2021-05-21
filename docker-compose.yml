@@ -2,14 +2,14 @@ version: '3'
 services:
   database:
     image: mongo:3.4-jessie
-    ports: 
+    ports:
     - 27017:27017
-    volumes: 
-    - /data/db:/data/db
-    
+    volumes:
+    - ./data:/data/db
+
   bitcore-node:
     build: .
-    image: bitcore-node
+    image: rpmmarket/bitcore-node
     links:
       - database
     ports:
